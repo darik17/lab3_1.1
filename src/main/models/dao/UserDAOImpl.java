@@ -13,7 +13,7 @@ import java.sql.SQLException;
 import java.util.Collection;
 
 /**
- * Created by admin on 23.04.2017.
+ * Created by admin on 24.04.2017.
  */
 public class UserDAOImpl implements UserDAO {
 
@@ -62,7 +62,7 @@ public class UserDAOImpl implements UserDAO {
 
             LOGGER.debug("user" + user);
         }catch (SQLException e){
-                 LOGGER.error(e);
+            LOGGER.error(e);
 
         }
         return user;
@@ -73,3 +73,4 @@ public class UserDAOImpl implements UserDAO {
                 resultSet.getString("password"));
     }
 }
+
