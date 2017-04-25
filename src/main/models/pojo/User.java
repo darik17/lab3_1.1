@@ -1,7 +1,7 @@
-package models.pojo;
+package main.models.pojo;
 
 /**
- * Created by admin on 24.04.2017.
+ * Created by admin on 24.04.2017. 1
  */
 public class User {
 

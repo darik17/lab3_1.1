@@ -1,9 +1,10 @@
-package models.dao;
+package main.models.dao;
 
-import models.ConnectionPool;
-import models.pojo.User;
+
+import main.models.ConnectionPool;
+import main.models.pojo.User;
+import main.services.UserServicesImpl;
 import org.apache.log4j.Logger;
-import services.UserServicesImpl;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import java.sql.Connection;
@@ -13,7 +14,7 @@ import java.sql.SQLException;
 import java.util.Collection;
 
 /**
- * Created by admin on 24.04.2017.
+ * Created by admin on 24.04.2017.q
  */
 public class UserDAOImpl implements UserDAO {
 

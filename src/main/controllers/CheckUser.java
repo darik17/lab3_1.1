@@ -1,8 +1,8 @@
-package controllers;
+package main.controllers;
 
+import main.services.UserServices;
+import main.services.UserServicesImpl;
 import org.apache.log4j.Logger;
-import services.UserServices;
-import services.UserServicesImpl;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * Created by admin on 23.04.2017.
+ * Created by admin on 23.04.2017.1
  */
 public class CheckUser extends HttpServlet {
 

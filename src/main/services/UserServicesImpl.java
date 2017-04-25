@@ -1,12 +1,13 @@
-package services;
+package main.services;
 
-import models.dao.UserDAO;
-import models.dao.UserDAOImpl;
-import models.pojo.User;
+
+import main.models.dao.UserDAO;
+import main.models.dao.UserDAOImpl;
+import main.models.pojo.User;
 import org.apache.log4j.Logger;
 
 /**
- * Created by admin on 23.04.2017.
+ * Created by admin on 23.04.2017.qwe
  */
 public class UserServicesImpl implements UserServices {
 

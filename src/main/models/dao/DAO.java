@@ -1,9 +1,9 @@
-package models.dao;
+package main.models.dao;
 
 import java.util.Collection;
 
 /**
- * Created by admin on 22.04.2017.
+ * Created by admin on 22.04.2017. 12
  */
 public interface DAO<PK, E> {
 

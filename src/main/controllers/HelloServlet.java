@@ -1,4 +1,4 @@
-package controllers;
+package main.controllers;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * Created by admin on 21.04.2017.
+ * Created by admin on 21.04.2017.w
  */
 public class HelloServlet extends HttpServlet {
     @Override

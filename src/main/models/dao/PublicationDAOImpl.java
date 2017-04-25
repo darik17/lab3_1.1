@@ -1,11 +1,12 @@
-package models.dao;
+package main.models.dao;
 
-import models.pojo.Publication;
+
+import main.models.pojo.Publication;
 
 import java.util.Collection;
 
 /**
- * Created by admin on 22.04.2017.
+ * Created by admin on 22.04.2017.qas
  */
 public class PublicationDAOImpl implements PublicationDAO {
     @Override

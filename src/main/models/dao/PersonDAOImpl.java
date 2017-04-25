@@ -1,7 +1,8 @@
-package models.dao;
+package main.models.dao;
 
-import models.ConnectionPool;
-import models.pojo.Person;
+
+import main.models.ConnectionPool;
+import main.models.pojo.Person;
 
 import java.sql.*;
 import java.util.Collection;
@@ -9,17 +10,16 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Created by admin on 22.04.2017.
+ * Created by admin on 22.04.2017.q
  */
 
 @SuppressWarnings("Duplicates")
 public class PersonDAOImpl implements PersonDAO {
 
-    private static final String SELECT_ALL = "SELECT person_id, fio, email, phone, nickname, password," +
+    private static final String SELECT_ALL = "SELECT person_id, fio, email, phone, " +
             " moderator  FROM person";
     private static final String INSERT_INTO = "INSERT INTO person (fio) VALUES(?)";
-    private static final String UPDATE_WHERE = "UPDATE person SET fio  = ?, email = ?, phone = ?," +
-            " nickname = ?, password = ?, moderator = ? WHERE person_id = ? ";
+    private static final String UPDATE_WHERE = "UPDATE person SET fio  = ?, email = ?, phone = ?, moderator = ? WHERE person_id = ? ";
     private static final String DELETE_BY_ID = "DELETE FROM person WHERE person_id=?";
 
 
@@ -46,8 +46,8 @@ public class PersonDAOImpl implements PersonDAO {
     @Override
     public Person getByID(Integer id) {
         Person person = null;
-        try (Connection connection = ConnectionPool.getINSTANCE().getConnection();
-        PreparedStatement statement = connection.prepareStatement(SELECT_ALL + "WHERE person_id = ?")){
+      /*  try (Connection connection = ConnectionPool.getINSTANCE().getConnection();
+        PreparedStatement statement = connection.prepareStatement(SELECT_ALL + "WHERE public.person_id = ?")){
             statement.setInt(1, id);
             ResultSet resultSet =statement.executeQuery();
             if (resultSet.next()){
@@ -56,7 +56,7 @@ public class PersonDAOImpl implements PersonDAO {
 
         } catch (SQLException e){
             e.printStackTrace();
-        }
+        }*/
 
         return person;
     }
@@ -64,7 +64,7 @@ public class PersonDAOImpl implements PersonDAO {
     @Override
     public Integer insert(Person entity) {
         int result = -1;
-        try(Connection connection = ConnectionPool.getINSTANCE().getConnection();
+      /*  try(Connection connection = ConnectionPool.getINSTANCE().getConnection();
             PreparedStatement statement = connection.prepareStatement(INSERT_INTO, Statement.RETURN_GENERATED_KEYS)){
 
             statement.setString(1,entity.getFio());
@@ -80,7 +80,7 @@ public class PersonDAOImpl implements PersonDAO {
 
         }catch (SQLException e){
                 e.printStackTrace();
-        }
+        }*/
         return result;
     }
 

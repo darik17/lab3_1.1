@@ -1,18 +1,16 @@
-package models;
+package main.models;
 
 import com.jolbox.bonecp.BoneCP;
 import com.jolbox.bonecp.BoneCPConfig;
 
-
 import java.io.IOException;
 import java.io.InputStream;
-
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.Properties;
 
 /**
- * Created by admin on 22.04.2017.
+ * Created by admin on 22.04.2017.1
  */
 public class ConnectionPool {
 

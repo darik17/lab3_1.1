@@ -1,7 +1,7 @@
-package models.pojo;
+package main.models.pojo;
 
 /**
- * Created by admin on 22.04.2017.
+ * Created by admin on 22.04.2017. 12
  */
 public class Publication {
     private int publication_id;

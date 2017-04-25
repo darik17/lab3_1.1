@@ -8,13 +8,13 @@
 
   <servlet>
     <servlet-name>CheckUser</servlet-name>
-    <servlet-class>controllers.CheckUser</servlet-class>
+    <servlet-class>main.controllers.CheckUser</servlet-class>
   </servlet>
 
 
   <servlet>
     <servlet-name>AddUser</servlet-name>
-    <servlet-class>controllers.AddUser</servlet-class>
+    <servlet-class>main.controllers.AddUser</servlet-class>
   </servlet>
 
   <servlet-mapping>
