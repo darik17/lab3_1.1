@@ -4,29 +4,80 @@
          xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
          version="2.4">
 
-  <display-name>Archetype Created Web Application</display-name>
+    <display-name>Archetype Created Web Application</display-name>
 
-  <servlet>
-    <servlet-name>CheckUser</servlet-name>
-    <servlet-class>main.controllers.CheckUser</servlet-class>
-  </servlet>
-
-
-  <servlet>
-    <servlet-name>AddUser</servlet-name>
-    <servlet-class>main.controllers.AddUser</servlet-class>
-  </servlet>
-
-  <servlet-mapping>
-    <servlet-name>CheckUser</servlet-name>
-    <url-pattern>/CheckUser</url-pattern>
-  </servlet-mapping>
+    <servlet>
+        <servlet-name>Main</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Main</servlet-name>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
 
 
-  <servlet-mapping>
-    <servlet-name>AddUser</servlet-name>
-    <url-pattern>/AddUser</url-pattern>
-  </servlet-mapping>
+   <!--<servlet>
+       <servlet-name>CheckUsers</servlet-name>
+       <servlet-class>main.controllers.CheckUsers</servlet-class>
+   </servlet>-->
+
+
+    <servlet>
+        <servlet-name>AddUser</servlet-name>
+        <servlet-class>main.controllers.AddUser</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>ListServlet</servlet-name>
+        <servlet-class>main.controllers.ListServlet</servlet-class>
+    </servlet>
+    <!--<servlet>
+        <servlet-name>RegistrationServlet</servlet-name>
+        <servlet-class>main.controllers.RegistrationServlet</servlet-class>
+    </servlet>-->
+
+
+   <!-- <servlet-mapping>
+        <servlet-name>CheckUsers</servlet-name>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>-->
+
+    <servlet-mapping>
+        <servlet-name>AddUser</servlet-name>
+        <url-pattern>/AddUser</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>ListServlet</servlet-name>
+        <url-pattern>/ListServlet</url-pattern>
+    </servlet-mapping>
+
+    <!--<servlet-mapping>
+        <servlet-name>RegistrationServlet</servlet-name>
+        <url-pattern>/Registration</url-pattern>
+    </servlet-mapping>-->
+
+    <filter>
+        <filter-name>WhiteFilter</filter-name>
+        <filter-class>main.controllers.filters.WhiteList</filter-class>
+    </filter>
+
+    <listener>
+        <listener-class>main.controllers.listeners.MySessionListener</listener-class>
+    </listener>
+
+    <filter-mapping>
+        <filter-name>WhiteFilter</filter-name>
+        <url-pattern>/listUsers</url-pattern>
+    </filter-mapping>
+
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>WEB-INF/Main-servlet.xml</param-value>
+    </context-param>
 
 </web-app>
 

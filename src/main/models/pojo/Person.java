@@ -12,7 +12,7 @@ public class Person {
     private String password;
     private boolean moderator;
 
-    public Person(){
+    public Person() {
 
     }
 

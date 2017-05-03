@@ -7,11 +7,13 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * Created by admin on 21.04.2017.w
+ * Created by admin on 22.04.2017. 123
  */
-public class HelloServlet extends HttpServlet {
+public class ListServlet extends HttpServlet{
+
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getRequestDispatcher("index.jsp").forward(req, resp);
+        super.doGet(req, resp);
     }
 }

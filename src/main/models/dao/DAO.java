@@ -8,8 +8,12 @@ import java.util.Collection;
 public interface DAO<PK, E> {
 
     Collection<E> getAll();
+
     E getByID(PK id);
-    PK insert (E entity);
-    void update (E entity);
-    void  delete (E entity);
+
+    PK insert(E entity);
+
+    void update(E entity);
+
+    void delete(E entity);
 }

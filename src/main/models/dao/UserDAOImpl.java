@@ -62,12 +62,13 @@ public class UserDAOImpl implements UserDAO {
             }
 
             LOGGER.debug("user" + user);
-        }catch (SQLException e){
+        } catch (SQLException e) {
             LOGGER.error(e);
 
         }
         return user;
     }
+
     private User createEntity(ResultSet resultSet) throws SQLException {
         return new User(resultSet.getInt("id"),
                 resultSet.getString("login"),

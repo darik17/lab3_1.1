@@ -8,4 +8,5 @@ import main.models.pojo.User;
  */
 public interface UserServices {
     User auth(String login, String password);
+    User insert(String login, String password);
 }

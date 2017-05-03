@@ -9,8 +9,8 @@ import javax.servlet.http.HttpSessionListener;
 /**
  * Created by admin on 22.04.2017.a
  */
-class MySessionListener implements HttpSessionListener {
-    private static final Logger LOGGER =Logger.getLogger(MySessionListener.class);
+public class MySessionListener implements HttpSessionListener {
+    private static final Logger LOGGER = Logger.getLogger(MySessionListener.class);
 
 
     public void sessionCreated(HttpSessionEvent httpSessionEvent) {

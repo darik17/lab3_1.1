@@ -22,11 +22,11 @@ public class ConnectionPool {
         return INSTANCE;
     }
 
-    private ConnectionPool(){
+    private ConnectionPool() {
         Properties dbProperties = new Properties();
 
-        try(InputStream is = ConnectionPool.class.getClassLoader()
-                .getResourceAsStream("database.properties")){
+        try (InputStream is = ConnectionPool.class.getClassLoader()
+                .getResourceAsStream("database.properties")) {
             dbProperties.load(is);
             Class.forName("org.postgresql.Driver");
 
@@ -38,7 +38,7 @@ public class ConnectionPool {
             config.setMaxConnectionsPerPartition(10);
             config.setPartitionCount(1);
             boneCP = new BoneCP(config);
-        } catch (IOException | ClassNotFoundException | SQLException e){
+        } catch (IOException | ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         }
     }

@@ -13,7 +13,7 @@ import java.util.Set;
  * Created by admin on 22.04.2017.q
  */
 
-@SuppressWarnings("Duplicates")
+
 public class PersonDAOImpl implements PersonDAO {
 
     private static final String SELECT_ALL = "SELECT person_id, fio, email, phone, " +
@@ -23,21 +23,20 @@ public class PersonDAOImpl implements PersonDAO {
     private static final String DELETE_BY_ID = "DELETE FROM person WHERE person_id=?";
 
 
-
     @Override
     public Collection<Person> getAll() {
         Set<Person> entities = new HashSet<>();
 
         try (Connection connection = ConnectionPool.getINSTANCE().getConnection();
-             Statement statement = connection.createStatement()){
+             Statement statement = connection.createStatement()) {
 
             ResultSet resultSet = statement.executeQuery(SELECT_ALL);
-            while (resultSet.next()){
+            while (resultSet.next()) {
                 entities.add(createEnity(resultSet));
             }
 
-        } catch (SQLException e){
-                 e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
 
         return entities;
@@ -86,18 +85,18 @@ public class PersonDAOImpl implements PersonDAO {
 
     @Override
     public void update(Person entity) {
-        try(Connection connection = ConnectionPool.getINSTANCE().getConnection();
-            PreparedStatement statement = connection.prepareStatement(UPDATE_WHERE)){
+        try (Connection connection = ConnectionPool.getINSTANCE().getConnection();
+             PreparedStatement statement = connection.prepareStatement(UPDATE_WHERE)) {
 
-            statement.setString(1,entity.getFio());
-            statement.setString(2,entity.getEmail());
-            statement.setString(3,entity.getPhone());
-            statement.setString(4,entity.getNickname());
-            statement.setString(5,entity.getPassword());
+            statement.setString(1, entity.getFio());
+            statement.setString(2, entity.getEmail());
+            statement.setString(3, entity.getPhone());
+            statement.setString(4, entity.getNickname());
+            statement.setString(5, entity.getPassword());
 
-           statement.executeUpdate();
+            statement.executeUpdate();
 
-        }catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         }
 
@@ -105,13 +104,13 @@ public class PersonDAOImpl implements PersonDAO {
 
     @Override
     public void delete(Person entity) {
-        try(Connection connection = ConnectionPool.getINSTANCE().getConnection();
-            PreparedStatement statement = connection.prepareStatement(DELETE_BY_ID)){
+        try (Connection connection = ConnectionPool.getINSTANCE().getConnection();
+             PreparedStatement statement = connection.prepareStatement(DELETE_BY_ID)) {
 
-            statement.setInt(1,entity.getPerson_id());
+            statement.setInt(1, entity.getPerson_id());
             statement.executeUpdate();
 
-        }catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }
@@ -127,7 +126,6 @@ public class PersonDAOImpl implements PersonDAO {
         person.setModerator(resultSet.getBoolean("moderator"));
 
         return person;
-
 
 
     }

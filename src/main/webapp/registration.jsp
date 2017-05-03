@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page errorPage="error.jsp" %>
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -22,12 +23,14 @@
     <p>
     <table>
         <tr>
-            <th><small>
-                <input type="submit" name="save" value="Сохранить">
-            </small>
-            <th><small>
-                <input type="submit" name="cancel" value="Выйти">
-            </small>
+            <th>
+                <small>
+                    <input type="submit" name="save" value="Сохранить">
+                </small>
+            <th>
+                <small>
+                    <input type="submit" name="cancel" value="Выйти">
+                </small>
     </table>
 </form>
 </body>
