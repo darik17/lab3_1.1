@@ -33,7 +33,7 @@ public class CheckUserController {
         this.userServices = userServices;
     }
 
-    @RequestMapping(value = "/",method = RequestMethod.POST)
+    @RequestMapping(value = "/login",method = RequestMethod.POST)
     public ModelAndView checkUser (@RequestParam(name = "user",required = false) String user,
                                    @RequestParam (name = "password",required = false) String password,
                                    Model model) {
