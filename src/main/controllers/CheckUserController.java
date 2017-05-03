@@ -43,7 +43,7 @@ public class CheckUserController {
 
             modelAndView.addObject("user",user);
             LOGGER.debug("user : " + user + " logged");
-            modelAndView.setViewName("redirect: /userpages");
+            modelAndView.setViewName("redirect: /userpages.jsp");
 
 
         } else {
