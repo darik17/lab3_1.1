@@ -18,9 +18,16 @@
     <beans:bean id="userDao" class="main.models.dao.UserDAOImpl"/>
 
     <beans:bean id="personService" class="main.services.PersonServicesImpl">
-        <beans:property name="personDAO" ref="personDAO"/>
-    </beans:bean>
+    <beans:property name="personDAO" ref="personDAO"/>
+</beans:bean>
 
     <beans:bean id="personDAO" class="main.models.dao.PersonDAOImpl"/>
+
+
+    <beans:bean id="publicService" class="main.services.PublicationServicesImpl">
+        <beans:property name="publicationDAO" ref="publicationDAO"/>
+    </beans:bean>
+
+    <beans:bean id="publicationDAO" class="main.models.dao.PublicationDAOImpl"/>
 
 </beans:beans>

@@ -12,6 +12,9 @@ public class Publication {
     private String comment;
     private boolean moder;
 
+    public Publication(){
+
+    }
     public Publication(int publication_id, String name_publication, String tag, String text_publication, int person_id, String comment, boolean moder) {
         this.publication_id = publication_id;
         this.name_publication = name_publication;
