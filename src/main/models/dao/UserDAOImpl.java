@@ -63,7 +63,7 @@ public class UserDAOImpl implements UserDAO {
 
             LOGGER.debug("user" + user);
         } catch (SQLException e) {
-            LOGGER.error(e);
+            LOGGER.error("Проблема с выполнением запроса по поиску пользователя");
 
         }
         return user;

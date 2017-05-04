@@ -28,6 +28,8 @@ public class RegistrationController  {
         this.userService = userServices;
     }
 
+
+
     @RequestMapping(value = "/Registration",method = RequestMethod.POST)
     public ModelAndView registration (@RequestParam (name = "user",required = false) String user,
                                       @RequestParam (name = "password",required = false) String password,
@@ -39,9 +41,9 @@ public class RegistrationController  {
 
         LOGGER.debug("user " + user + fio);
 
-        if(user=="" && password=="" && fio=="" &&
-                email=="" && phone=="") {
-            modelAndView.setViewName("redirect: /Registration");
+        if(user =="" && password =="" && fio =="" &&
+                email =="" && phone =="") {
+            modelAndView.setViewName("redirect: /registration.jsp");
         }else{
             userService.insert(user,password);
             personServices.insert(fio,email,phone);

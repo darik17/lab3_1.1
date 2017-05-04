@@ -19,16 +19,23 @@
                     <input type="submit" name="login" value="Войти в систему">
                 </small>
 
+
+
         </tr>
 
         <tr>
-            <td colspan="2">Для регистрации щелкните <a href="registration.jsp">здесь</a></td>
+            <small>
+                <td><input type="button" value="Регистрация" onclick="location.href = '<%= request.getContextPath() %>/Registration'"></td>
+            </small>
+           <%-- <td colspan="2">Для регистрации щелкните <a href="registration.jsp">здесь</a></td>
+            <td><input type="button" value="Регистрация" onclick="location.href = '<%= request.getContextPath() %>/Registration'"></td>--%>
         </tr>
     </table>
 </form>
 
 <tr>
     <td colspan="2">Просмотр общедоступных статей <a href="error.jsp">View Publication</a></td>
+
 </tr>
 <br>
 </body>

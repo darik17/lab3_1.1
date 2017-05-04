@@ -1,5 +1,6 @@
 package main.controllers;
 
+import main.models.pojo.User;
 import main.services.UserServices;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,15 +34,17 @@ public class CheckUserController {
         this.userServices = userServices;
     }
 
+
     @RequestMapping(value = "/login",method = RequestMethod.POST)
-    public ModelAndView checkUser (@RequestParam(name = "user",required = false) String user,
+    public ModelAndView checkUser (@RequestParam(name = "user",required = false) String userL,
                                    @RequestParam (name = "password",required = false) String password,
                                    Model model) {
         ModelAndView modelAndView =new ModelAndView();
+        User user = userServices.auth(userL,password);
         LOGGER.info(user);
         if (user != null) {
 
-            modelAndView.addObject("user",user);
+            modelAndView.addObject("user",userL);
             LOGGER.debug("user : " + user + " logged");
             modelAndView.setViewName("redirect: /userpages.jsp");
 

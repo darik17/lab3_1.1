@@ -2,6 +2,7 @@ package main.models;
 
 import com.jolbox.bonecp.BoneCP;
 import com.jolbox.bonecp.BoneCPConfig;
+import org.apache.log4j.Logger;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -14,6 +15,7 @@ import java.util.Properties;
  */
 public class ConnectionPool {
 
+    private static final Logger LOGGER = Logger.getLogger(ConnectionPool.class);
     private static final ConnectionPool INSTANCE = new ConnectionPool();
 
     private BoneCP boneCP;
@@ -39,7 +41,7 @@ public class ConnectionPool {
             config.setPartitionCount(1);
             boneCP = new BoneCP(config);
         } catch (IOException | ClassNotFoundException | SQLException e) {
-            e.printStackTrace();
+            LOGGER.error("Проблема с созданием к БД");
         }
     }
 

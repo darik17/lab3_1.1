@@ -3,6 +3,7 @@ package main.models.dao;
 
 import main.models.ConnectionPool;
 import main.models.pojo.Person;
+import org.apache.log4j.Logger;
 
 import java.sql.*;
 import java.util.Collection;
@@ -15,6 +16,8 @@ import java.util.Set;
 
 
 public class PersonDAOImpl implements PersonDAO {
+
+    private static final Logger LOGGER = Logger.getLogger(PersonDAOImpl.class);
 
     private static final String SELECT_ALL = "SELECT person_id, fio, email, phone, " +
             " moderator  FROM person";
@@ -36,7 +39,7 @@ public class PersonDAOImpl implements PersonDAO {
             }
 
         } catch (SQLException e) {
-            e.printStackTrace();
+            LOGGER.error("Проблема с выполнением запроса SELECT_ALL, к БД");
         }
 
         return entities;
@@ -54,7 +57,7 @@ public class PersonDAOImpl implements PersonDAO {
             }
 
         } catch (SQLException e){
-            e.printStackTrace();
+           LOGGER.error("Проблема с выполнением запроса, к БД");
         }*/
 
         return person;
@@ -78,7 +81,7 @@ public class PersonDAOImpl implements PersonDAO {
             }
 
         }catch (SQLException e){
-                e.printStackTrace();
+                LOGGER.error("Проблема с выполнением запроса, к БД");
         }*/
         return result;
     }
@@ -97,7 +100,7 @@ public class PersonDAOImpl implements PersonDAO {
             statement.executeUpdate();
 
         } catch (SQLException e) {
-            e.printStackTrace();
+            LOGGER.error("Проблема с выполнением запроса UPDATE, к БД");
         }
 
     }
@@ -111,7 +114,7 @@ public class PersonDAOImpl implements PersonDAO {
             statement.executeUpdate();
 
         } catch (SQLException e) {
-            e.printStackTrace();
+            LOGGER.error("Проблема с выполнением запроса DELETE, к БД");
         }
     }
 
