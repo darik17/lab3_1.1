@@ -10,4 +10,5 @@ import java.util.List;
 public interface PublicationServices {
     List<Publication> getAllPublicationToFree();
     void insert(String fio, String email, String phone);
+    Publication getById(int public_id);
 }

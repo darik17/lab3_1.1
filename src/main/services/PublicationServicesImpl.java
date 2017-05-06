@@ -28,6 +28,12 @@ public class PublicationServicesImpl implements PublicationServices {
 
     }
 
+    @Override
+    public Publication getById(int public_id) {
+
+        return publicationDAO.getByID(public_id);
+    }
+
     public PublicationDAO getPublicationDAO() {
         return publicationDAO;
     }

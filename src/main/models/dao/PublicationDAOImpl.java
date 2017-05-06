@@ -5,10 +5,7 @@ import main.models.ConnectionPool;
 import main.models.pojo.Publication;
 import org.apache.log4j.Logger;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
@@ -20,11 +17,12 @@ public class PublicationDAOImpl implements PublicationDAO {
 
     private static final Logger LOGGER = Logger.getLogger(PublicationDAOImpl.class);
 
-    private static final String SELECT_ALL = "SELECT publicaton_id, name_publication, tag, text_publicaton, comment" +
+    private static final String SELECT_ALL = "SELECT publicaton_id, name_publication, tag, text_publicaton, comment," +
             "moder, person_id FROM public.publication";
     private static final String INSERT_INTO = "INSERT INTO person (fio) VALUES(?)";
     private static final String UPDATE_WHERE = "UPDATE person SET fio  = ?, email = ?, phone = ?, moderator = ? WHERE person_id = ? ";
     private static final String DELETE_BY_ID = "DELETE FROM person WHERE person_id=?";
+    private static final String GET_BY_ID = "SELECT * FROM public.publication WHERE publicaton_id = ?";
 
 
     @Override
@@ -47,7 +45,26 @@ public class PublicationDAOImpl implements PublicationDAO {
 
     @Override
     public Publication getByID(Integer id) {
+
+        try (Connection connection = ConnectionPool.getINSTANCE().getConnection();
+             PreparedStatement statement = connection.prepareStatement(GET_BY_ID)) {
+            statement.setInt(1, id);
+
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                Publication publication = new Publication(resultSet.getInt("publicaton_id"),
+                        resultSet.getString("name_publication"),resultSet.getString("tag"),
+                        resultSet.getString("text_publicaton"),resultSet.getInt("person_id"),
+                        resultSet.getString("comment"),resultSet.getBoolean("moder"));
+               return publication;
+            }
+
+        } catch (SQLException e) {
+            LOGGER.error("Проблема с выполнением запроса GET_BY_ID, к БД");
+        }
+
         return null;
+
     }
 
     @Override

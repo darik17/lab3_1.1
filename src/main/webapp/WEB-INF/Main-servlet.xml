@@ -24,7 +24,7 @@
     <beans:bean id="personDAO" class="main.models.dao.PersonDAOImpl"/>
 
 
-    <beans:bean id="publicService" class="main.services.PublicationServicesImpl">
+    <beans:bean id="publicationServices" class="main.services.PublicationServicesImpl">
         <beans:property name="publicationDAO" ref="publicationDAO"/>
     </beans:bean>
 

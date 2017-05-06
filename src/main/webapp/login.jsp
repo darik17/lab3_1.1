@@ -34,7 +34,8 @@
 </form>
 
 <tr>
-    <td colspan="2">Просмотр общедоступных статей <a href="error.jsp">View Publication</a></td>
+   <%-- <td colspan="2">Просмотр общедоступных статей <a href="error.jsp">View Publication</a></td>--%>
+    <td><input type="button" value="Просмотр общедоступных статей" onclick="location.href = '<%= request.getContextPath() %>/freepublic'"></td>
 
 </tr>
 <br>

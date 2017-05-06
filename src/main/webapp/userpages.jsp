@@ -14,7 +14,7 @@
 <body>
 <a href='logout.jsp'>Log out</a>
 <h1>
-
+    <%=session.getAttribute("login")%>
 </h1>
 
 </body>
